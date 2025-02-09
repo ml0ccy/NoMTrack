@@ -1,12 +1,13 @@
 {
-  "name": "sugar-free-tracker",
+  "name": "nomtrack",
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
   "dependencies": {
-    "electron": "^latest",
-    "moment-timezone": "^latest"
+    "better-sqlite3": "^11.8.1",
+    "electron": "latest",
+    "moment-timezone": "latest"
   }
 }

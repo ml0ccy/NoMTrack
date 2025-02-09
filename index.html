@@ -8,11 +8,25 @@
 </head>
 <body>
     <div class="container">
-        <h1>Дни без мастурбации</h1>
-        <div id="count" class="count">0</div>
-        <button id="increment" class="button">Засчитать день</button>
-        <p class="description">Нажмите кнопку, чтобы засчитать день без мастурбации!</p>
+        <h1 style="user-select: none;">Дни без мастурбации</h1>
+        <div id="count" class="count" style="user-select: none;">0</div>
+        <button id="increment" class="button" style="user-select: none;">Засчитать день</button>
+        <p class="description" style="user-select: none;">Нажмите кнопку, чтобы засчитать день без мастурбации!</p>
         <p id="message" class="message"></p>
+        
+        <!-- Кнопка "Сбросить прогресс" -->
+        <button id="resetProgressButton" class="button small-button" style="user-select: none;">Сбросить прогресс</button>
+        
+        <div class="dropdown">
+            <button class="button" id="moreOptions" style="user-select: none;">Прочие функции</button>
+            <div class="dropdown-content">
+                <button id="share" class="button" style="user-select: none;">Поделиться прогрессом</button>
+                <button id="info" class="button" style="user-select: none;">Информация</button>
+                <button id="diary" class="button" style="user-select: none;">Личный дневник</button>
+            </div>
+        </div>
+        
+        <button id="devToolsButton" class="button small-button" style="display: none;">DevTools</button>
     </div>
     <script src="renderer.js"></script>
 </body>

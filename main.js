@@ -14,6 +14,7 @@ function createWindow() {
             preload: path.join(__dirname, 'preload.js'),
             contextIsolation: true,
             enableRemoteModule: false,
+            nodeIntegration: false,
         },
     });
 
@@ -23,6 +24,9 @@ function createWindow() {
 app.whenReady().then(() => {
     createWindow();
     setInterval(checkReset, 60000); // Проверка каждую минуту
+    app.on('activate', () => {
+        if (BrowserWindow.getAllWindows().length === 0) createWindow();
+    });
 });
 
 function checkReset() {
@@ -40,14 +44,12 @@ ipcMain.on('increment-day', () => {
     mainWindow.webContents.send('update-count', noMasturbationDays);
 });
 
+ipcMain.on('open-devtools', (event) => {
+    mainWindow.webContents.openDevTools(); // Открываем DevTools
+});
+
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
         app.quit();
-    }
-});
-
-app.on('activate', () => {
-    if (BrowserWindow.getAllWindows().length === 0) {
-        createWindow();
     }
 });
